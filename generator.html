@@ -346,13 +346,16 @@ function savePdf() {
 
 function generate()
 {besede_slovar
+    var orientation = "landscape";
+    if(document.getElementById("orientation").value == 2) {
+        orientation = "portrait";
+    }
     // For A4 - landscape
-    var doc = new jsPDF(orientation='landscape');
+    var doc = new jsPDF(orientation);
     //doc.setLanguage("sl");
     doc.setFont("Arial");
     var width = doc.internal.pageSize.getWidth(); //297; //
     var height = doc.internal.pageSize.getHeight(); // 210; //
-    
     var margin = 1*document.getElementById("margin").value; // distance from the edge of document
     var bottom_margin = 1*document.getElementById("margin_bottom").value;
     console.log("Margin " + margin);
@@ -406,7 +409,7 @@ function generate()
         doc.text("" + ((page_nr) + 1), 0.5*width, height - text_margin);
         // doc.text("" + (2*(page_nr) + 2), 0.75*width - text_margin, height - text_margin);
         // doc.text("Z" + zalozba_i + "-" + reading_list_marker, 0.445*width, 7);
-        doc.text("Z" + zalozba_i + "-" + reading_list_marker, 0.945*width, 7);
+        doc.text("Z" + zalozba_i + "-" + reading_list_marker, 0.915*width, 7);
         doc.setFontSize(font_size);
 
         for (var page_side = 0; page_side < 1; ++page_side) {
@@ -590,10 +593,17 @@ function initBody()
         <tr bgcolor="#939144">
             <td>Marža (levo, desno, zgoraj)</td>
             <td>Marža spodaj</td>
+            <td>orientacija</td>
         </tr>
         <tr>
             <td><input type="number" id="margin" min="1" max="100" value="10"></input></td>
             <td><input type="number" id="margin_bottom" min="1" max="100" value="30"></input></td>
+            <td>
+                <select id="orientation">
+                    <option value="1">landscape</option>
+                    <option value="2">portret</option>
+                </select>
+            </td>
             <td>
                 <button onclick='generate()'>Generiraj PDF</button>
                 <button onclick='savePdf()'>Shrani PDF</button>
