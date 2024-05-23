@@ -405,7 +405,7 @@ function generate()
         // doc.setLineDash([5, 5], 0);
         doc.line(width, 0, width, height, 'DF');
         // doc.addImage(logo_celota_base64, "PNG", 0.5*width - margin - 20 , height-15, 20, 5);
-        doc.addImage(logo_celota_base64, "PNG", width - margin - 35, height-35, 20, 5);
+        doc.addImage(logo_celota_base64, "PNG", width - margin - 38, height-35, 20, 5);
         doc.text("" + ((page_nr) + 1), 0.5*width, height - text_margin-24);
         // doc.text("" + (2*(page_nr) + 2), 0.75*width - text_margin, height - text_margin);
         // doc.text("Z" + zalozba_i + "-" + reading_list_marker, 0.445*width, 7);
@@ -450,7 +450,7 @@ function generate()
                     }*/
 
 
-                    doc.text(word, x + text_margin + cell_nr*column_width, y + line_nr*line_spacing + dim.h +24);
+                    doc.text(word, x + text_margin + cell_nr*column_width+10, y + line_nr*line_spacing + dim.h +24);
                     // if(line_nr == 0) {
                     // }else {
                     //     doc.text(word, x + text_margin + cell_nr*column_width, y + line_nr*line_spacing + dim.h);
