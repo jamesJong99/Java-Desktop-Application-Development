@@ -391,7 +391,7 @@ function generate()
     doc.setFontSize(font_size);
     var dim = doc.getTextDimensions("TEST");
     
-    var line_spacing = (height - margin - bottom_margin - dim.h) / (nr_rows - 1)-8;
+    var line_spacing = (height - margin - bottom_margin - dim.h) / (nr_rows - 1)-10;
     var zalozba_i = document.getElementById("zalozba").value;
 
     var bgcolor = bgcolor1;
@@ -405,11 +405,11 @@ function generate()
         // doc.setLineDash([5, 5], 0);
         doc.line(width, 0, width, height, 'DF');
         // doc.addImage(logo_celota_base64, "PNG", 0.5*width - margin - 20 , height-15, 20, 5);
-        doc.addImage(logo_celota_base64, "PNG", width - margin - 20, height-30, 20, 5);
-        doc.text("" + ((page_nr) + 1), 0.5*width, height - text_margin-12);
+        doc.addImage(logo_celota_base64, "PNG", width - margin - 35, height-35, 20, 5);
+        doc.text("" + ((page_nr) + 1), 0.5*width, height - text_margin-24);
         // doc.text("" + (2*(page_nr) + 2), 0.75*width - text_margin, height - text_margin);
         // doc.text("Z" + zalozba_i + "-" + reading_list_marker, 0.445*width, 7);
-        doc.text("Z" + zalozba_i + "-" + reading_list_marker, 0.915*width, 22);
+        doc.text("Z" + zalozba_i + "-" + reading_list_marker, 0.905*width-10, 27);
         doc.setFontSize(font_size);
         console.log('doc:', doc)
         for (var page_side = 0; page_side < 1; ++page_side) {
@@ -423,7 +423,7 @@ function generate()
                     bgcolor = bgcolor1;
                 doc.setFillColor(bgcolor);
                 // doc.rect(20,20,20,20,'F')
-                doc.rect(x, y + line_nr*line_spacing + 19, width - 2*margin, 2*text_margin+dim.h, 'F');
+                doc.rect(x, y + line_nr*line_spacing + 24, width - 2*margin, 2*text_margin+dim.h, 'F');
                 // if(line_nr == 0) {
                 // } else {
                 //     doc.rect(x, y + line_nr*line_spacing, width - 2*margin, 2*text_margin+dim.h, 'F');
@@ -450,7 +450,7 @@ function generate()
                     }*/
 
 
-                    doc.text(word, x + text_margin + cell_nr*column_width, y + line_nr*line_spacing + dim.h +19);
+                    doc.text(word, x + text_margin + cell_nr*column_width, y + line_nr*line_spacing + dim.h +24);
                     // if(line_nr == 0) {
                     // }else {
                     //     doc.text(word, x + text_margin + cell_nr*column_width, y + line_nr*line_spacing + dim.h);
