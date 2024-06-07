@@ -20,9 +20,11 @@
         {
             return (str.indexOf(crka) > -1);
         }
+        // render
         function filterRepeating(str)
         {
           var str_a = str.split('');
+
           for (var i = 1; i < str_a.length; ++i)
           {
               if (str_a[i-1] == str_a[i])
